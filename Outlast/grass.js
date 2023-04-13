@@ -3,7 +3,6 @@ class Grass extends LivingCreature{
         super(x,y)
         this.multiply = 0
         this.directions = [];
-    
     }
     
 
