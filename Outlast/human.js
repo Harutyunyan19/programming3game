@@ -1,6 +1,10 @@
 ////wdw
 //efbgwehefgeh
-class Human {
+let LivingCreature = require("./LivingCreature")
+
+
+
+modul.exports = class Human {
     constructor(x, y) {
         this.x = x
         this.y = y

@@ -1,4 +1,8 @@
-class Zombi {
+let LivingCreature = require("./LivingCreature")
+
+
+
+modul.exports = class Zombi {
     constructor(x, y) {
         this.x = x
         this.y = y
