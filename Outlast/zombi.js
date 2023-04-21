@@ -53,7 +53,7 @@ modul.exports = class Zombi {
 
     mul() {
         let emptyCell = this.chooseCell(0)
-        let newCell = random(emptyCell)
+        let newCell = emptyCell[Math.floor(Math.random()* emptyCell.length)]
 
         if (newCell) {
             let newX = newCell[0]
@@ -72,8 +72,7 @@ modul.exports = class Zombi {
 
     eat() {
         let emptyCell = this.chooseCell(3, 2)
-        let newCell = random(emptyCell)
-
+        let newCell = emptyCell[Math.floor(Math.random()* emptyCell.length)]
         if (newCell) {
             this.energy += 5
             let newX = newCell[0]
@@ -111,7 +110,7 @@ modul.exports = class Zombi {
 
     move(){
         let emptyCell = this.chooseCell(0)
-        let newCell = random(emptyCell)
+        let newCell = emptyCell[Math.floor(Math.random()* emptyCell.length)]
 
             if(newCell){
                 let newX = newCell[0]
