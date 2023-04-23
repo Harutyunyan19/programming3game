@@ -2,6 +2,7 @@ var socket = io()
 let side = 30
 ///օբյեկտներ պահելու զանգվածներ
 function setup() {
+    
         createCanvas(20 * side, 20 * side)
         background("gray")
        

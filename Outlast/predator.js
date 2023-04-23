@@ -2,12 +2,26 @@ let LivingCreature = require("./LivingCreature")
 
 
 
-modul.exports = class Predator extends LivingCreature{
+module.exports = class Predator extends LivingCreature{
     constructor(x, y) {
         super(x,y)
         this.energy = 15
         this.directions = []
     }
+
+    getNewCoordinates(){
+        this.directions = [
+            [this.x - 1, this.y - 1],
+            [this.x    , this.y - 1],
+            [this.x + 1, this.y - 1],
+            [this.x - 1, this.y    ],
+            [this.x + 1, this.y    ],
+            [this.x - 1, this.y + 1],
+            [this.x    , this.y + 1],
+            [this.x + 1, this.y + 1]
+        ];
+    }
+
     chooseCell(char, char1) {
         this.getNewCoordinates()
         let found = []

@@ -4,10 +4,9 @@ let LivingCreature = require("./LivingCreature")
 
 
 
-modul.exports = class Human {
+module.exports = class Human  extends LivingCreature{
     constructor(x, y) {
-        this.x = x
-        this.y = y
+        super(x,y)
         this.energy = 20
         this.directions = []
     }

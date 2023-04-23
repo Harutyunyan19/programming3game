@@ -2,10 +2,9 @@ let LivingCreature = require("./LivingCreature")
 
 
 
-modul.exports = class Zombi {
+module.exports = class Zombi extends LivingCreature {
     constructor(x, y) {
-        this.x = x
-        this.y = y
+     super(x,y)
         this.energy = 15
         this.directions = []
     }
