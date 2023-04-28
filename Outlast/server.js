@@ -142,7 +142,7 @@ function game() {
         }
         io.sockets.emit('send messege', matrix)
 }
-setInterval(game, 300)
+setInterval(game, 150)
 
 var statisticks = {}
 
@@ -156,10 +156,7 @@ setInterval(function () {
         fs.writeFile("statisticks.json", JSON.stringify(statisticks), function () {
 
         })
-},300)
-
-
-
+},150)
 
 
 

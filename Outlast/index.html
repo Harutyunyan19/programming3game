@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/p5@1.5.0/lib/p5.js"></script>
+    <link rel="stylesheet" href="style.css">
     <title>Outlast</title>
     <style>
 
@@ -30,6 +31,8 @@
             color: white;
             text-align: center;
         }
+       
+
     </style>
 <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
    
@@ -40,5 +43,20 @@
    <script src="/socket.io/socket.io.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/p5@1.5.0/lib/p5.js"></script>
    <script src="script.js"></script>
+
+
+   <div>
+    <div class="container">
+      <a onclick="kill()"  target="_blank"><button type="button">Kill All</button></a>
+      <a onclick="spawnGr()"  target="_blank"><button type="button">Add Grass</button></a>
+      <a onclick="spawnGrEater()"  target="_blank"><button type="button">Add GrassEater</button></a>
+      <a onclick="spawnBoom()"  target="_blank"><button type="button">Add Predator</button></a>
+      <a onclick="spawnPr()"  target="_blank"><button type="button">Add Human</button></a>
+      <a onclick="killPr()"  target="_blank"><button type="button">Add Zombi</button></a>
+      <a onclick="changeWeather()"  target="_blank"><button type="button">Change Weather</button></a>
+
+
+    </div>
+   
 </body>
 </html>
