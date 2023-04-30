@@ -1,25 +1,13 @@
 var socket = io()
 let side = 30
 let myChart;
-// let weather1= "winter";
 
-
-// function changer(){
-//     if(weather1 == "winter"){
-//         document.getElementById("wstyle").style.color = "#8d05e8";
-//     }
-//     else{
-//         document.getElementById("wstyle").style.color = "white";
-//     }
-// }
 // ///օբյեկտներ պահելու զանգվածներ
 function setup() {
     
         createCanvas(20 * side, 20 * side)
         background("gray")
-//         document.getElementById("weather").innerHTML = weather1;
-//         document.getElementById("wstyle").style.backgroundColor = weathSwitcher[weather1]
-//     changer();
+
  }
  socket.on("Winter", function (data) {
     weath = data;
@@ -38,7 +26,7 @@ socket.on("Autumn", function (data) {
 
 
  socket.on ("send datas", function(counts){
-    // console.log(counts);
+
     document.getElementById("grass").innerHTML = counts.Grass;
     document.getElementById("grassEater").innerHTML = counts.GrassEater;
     document.getElementById("pred").innerHTML = counts.Predator;
@@ -48,22 +36,6 @@ socket.on("Autumn", function (data) {
     myChart.data.datasets[0].data = [counts.Grass, counts.GrassEater, counts.Predator, counts.Zombi, counts.Human];
     myChart.update();
 })
-
-//     socket.on ('weather', function(data){
-//         weather1 = data;
-//         document.getElementById("weather").innerHTML = weather1;
-//         document.getElementById("wstyle").style.backgroundColor = weathSwitcher[weather1]
-       
-//           changer();
-//     })
-    
-// weathSwitcher = {
-//     winter :"white",
-//     spring: "#62D319",
-//     summer: "green",
-//     autumn: "#C75520"
-// }
-
 
 
 function nkarel(matrix) {
@@ -115,30 +87,6 @@ function nkarel(matrix) {
             }
 
 
-
-                // for (let i in grassArr) {
-                //         grassArr[i].mul()
-                // }
-
-
-                // for(let i in grassEaterArr){
-                //         grassEaterArr[i].eat()
-                // }
-
-             
-
-                // for(let i in predatorArr){
-                //         predatorArr[i].eat()
-                // }
-
-
-                // for(let i in zombiArr){
-                //         zombiArr[i].eat()
-                // }
-                // for(let i in humanArr){
-                //         humanArr[i].eat()
-                // }
- 
 
 
 }

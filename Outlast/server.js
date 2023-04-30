@@ -88,7 +88,6 @@ Human = require("./human")
 Zombi = require("./zombi")
 
 
-// let weathers = ["winter", "spring", "summer", "autumn"];
 
 
 
