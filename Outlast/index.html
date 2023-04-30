@@ -38,6 +38,45 @@
    
 </head>
 <body>
+    <style>
+        table {
+          position: relative;
+          bottom: 0;
+          margin: auto;
+          margin-bottom: 3%;
+          background-color: transparent;
+        }
+    
+        td {
+          border: 1px solid black;
+          width: 350px;
+          height: 50px;
+          background-color: #050e2d;
+          color: white;
+          padding: 1px;
+          font-size: 30px;
+          font-family: sans-serif;
+    
+        }
+      </style>
+    <table>
+        <tr>
+          <td>Grass</td>
+          <td>GrassEater</td>
+          <td>Predator</td>
+          <td>Human</td>
+          <td>Zombi</td>
+    
+        </tr>
+        <tr>
+          <td id="grass"></td>
+          <td id="grassEater"></td>
+          <td id="pred"></td>
+          <td id="human"></td>
+          <td id="zombi"></td>
+    
+        </tr>
+      </table>
    <h1>OUTLAST</h1>
    <h2>Harutyunyan Sipan</h2>
    <script src="/socket.io/socket.io.js"></script>
@@ -47,6 +86,12 @@
 
    <div>
     <div class="container">
+        <div >
+            <button onclick="Spring()" class="btn effect01" target="_blank" >Spring</button>
+            <button onclick="Summer()" class="btn effect01" target="_blank">Summer</button>
+            <button onclick="Autumn()" class="btn effect01" target="_blank" >Autumn</button>
+            <button onclick="Winter()" class="btn effect01" target="_blank">Winter</button>
+        </div>
       <a onclick="kill()" class="btn effect01" target="_blank"><span>Kill All</span></a>
       <a onclick="addGr()" class="btn effect01" target="_blank"><span>Add Grass</span></a>
       <a onclick="addGrEater()" class="btn effect01" target="_blank"><span>Add GrasEater</span></a>
@@ -54,14 +99,10 @@
       <a onclick="addHuman()" class="btn effect01" target="_blank"><span>Add Human</span></a> 
       <a onclick="addZombi()" class="btn effect01" target="_blank"><span>Add Zombi</span></a>
       <a onclick="killPr()" class="btn effect01" target="_blank"><span>Kill Predator</span></a>
-      <a onclick="changeWeather()" class="btn effect01"  target="_blank"><span>Change Weather</span></a>
+      
 
 
     </div>
 </div>
-<div id="wstyle" class="weather">
-    <h3 style="display: inline-block;">Weather: <h3 style="display: inline-block;" id="weather"></h3>
-    </h3>
-  </div>
 </body>
 </html>

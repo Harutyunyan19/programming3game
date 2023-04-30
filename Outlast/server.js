@@ -88,7 +88,7 @@ Human = require("./human")
 Zombi = require("./zombi")
 
 
-let weathers = ["winter", "spring", "summer", "autumn"];
+// let weathers = ["winter", "spring", "summer", "autumn"];
 
 
 
@@ -126,57 +126,56 @@ function createObject() {
 }
 
 
-function game() {
-        for (let i in grassArr) {
-                grassArr[i].mul()
-        }
+ function game() {
+         for (let i in grassArr) {
+                 grassArr[i].mul()
+         }
 
 
         for (let i in grassEaterArr) {
-                grassEaterArr[i].eat()
-        }
+                 grassEaterArr[i].eat()
+         }
 
-        for (let i in predatorArr) {
+         for (let i in predatorArr) {
                 predatorArr[i].eat()
-        }
+       }
 
 
-        for (let i in zombiArr) {
-                zombiArr[i].eat()
-        }
-        for (let i in humanArr) {
-                humanArr[i].eat()
-        }
+         for (let i in zombiArr) {
+                 zombiArr[i].eat()
+         }
+         for (let i in humanArr) {
+                 humanArr[i].eat()
+         }
         io.sockets.emit('send messege', matrix)
-}
+ }
 setInterval(game, 150)
 
-var statisticks = {}
 
-setInterval(function () {
-        statisticks.grass = grassArr.length
-        statisticks.grassEater = grassEaterArr.length
-        statisticks.predatorArr = predatorArr.length
-        statisticks.zombiArr = zombiArr.length
-        statisticks.humanArr = humanArr.length
+var weath;
 
-        fs.writeFile("statisticks.json", JSON.stringify(statisticks), function () {
 
-        })
-},150)
-
-let i = weathers.length - 1;
-
-function weat() {
-
-    let weather;
-    weather = weathers[i--];
-    if (i < 0) { i = 3 }
-    io.sockets.emit('weather', weather);
-}
-setInterval(weat, 8000);
 
  //Events
+
+ function Winter() {
+    weath = "winter";
+    io.sockets.emit('Winter', weath);
+}
+
+function Summer() {
+    weath = "summer";
+    io.sockets.emit('Summer', weath);
+}
+
+function Spring() {
+    weath = "spring";
+    io.sockets.emit('Spring', weath);
+}
+function Autumn() {
+    weath = "autumn";
+    io.sockets.emit('Autumn', weath);
+}
 
 function kill() {
         grassArr = [];
@@ -203,6 +202,7 @@ function kill() {
                 }
             }
         }
+        console.log(grassArr.length);
         io.sockets.emit("send matrix", matrix);
     }
     
@@ -266,9 +266,6 @@ function kill() {
         io.sockets.emit("send matrix", matrix);
     }
 
-    function changeWeather() {
-        weat();
-    }
     
     function alldatas() {
         countd = {
@@ -290,6 +287,10 @@ function kill() {
 
     io.on('connection', function (socket) {
         createObject();
+        socket.on("spring", Spring);
+        socket.on("summer", Summer);
+        socket.on("autumn", Autumn);
+        socket.on("winter", Winter);
         socket.on('killAll', kill);
         socket.on('AddGr', addGr);
         socket.on('AddGrEater', addGrEater);
@@ -297,5 +298,19 @@ function kill() {
         socket.on('AddHuman', addHuman);
         socket.on('AddZombi', addZombi);
         socket.on('KillPr', killPr);
-        socket.on('chWeather', changeWeather);
     })
+
+
+var statisticks = {}
+
+setInterval(function () {
+        statisticks.grass = grassArr.length
+        statisticks.grassEater = grassEaterArr.length
+        statisticks.predatorArr = predatorArr.length
+        statisticks.zombiArr = zombiArr.length
+        statisticks.humanArr = humanArr.length
+
+        fs.writeFile("statisticks.json", JSON.stringify(statisticks), function () {
+
+        })
+},1000)
